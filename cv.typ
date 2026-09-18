@@ -1,17 +1,16 @@
 // Imports
-#import "@preview/brilliant-cv:3.3.0": cv
-#let metadata = toml("./metadata.toml")
-#let cv-language = sys.inputs.at("language", default: none)
-#let metadata = if cv-language != none {
-  metadata + (language: cv-language)
-} else {
-  metadata
-}
+#import "@preview/brilliant-cv:4.1.0": cv, h-bar
 
-#let import-modules(modules, lang: metadata.language) = {
+// Each profile lives in its own folder with a self-contained metadata.toml.
+// Switch profile at compile time:
+//   typst compile cv.typ --input profile=en
+#let profile = sys.inputs.at("profile", default: "en")
+#let metadata = toml("profile_" + profile + "/metadata.toml")
+
+#let import-modules(modules) = {
   for module in modules {
     include {
-      "modules_" + lang + "/" + module + ".typ"
+      "profile_" + profile + "/" + module + ".typ"
     }
   }
 }
@@ -19,19 +18,22 @@
 #show: cv.with(
   metadata,
   profile-photo: image("assets/avatar.png"),
-  // To use custom image icons in personal.info.custom-N entries,
-  // pass them here (keys must match the custom-N keys in metadata.toml):
+  // To use custom image icons in personal.info.custom-<name> entries,
+  // pass them here (keys must match the custom-<name> keys in metadata.toml):
   // custom-icons: (
-  //   "custom-1": image("assets/my-icon.png"),
+  //   "custom-cert": image("assets/my-icon.png"),
   // ),
 )
 
+// Add, remove, or reorder modules to customize your CV content.
+// Publications come right after Education: for a Ph.D. candidate they are the
+// strongest differentiator, while awards and skills read last.
 #import-modules((
   "education",
+  "publications",
   "professional",
   "projects",
   "campus",
   "certificates",
-  "publications",
   "skills",
 ))

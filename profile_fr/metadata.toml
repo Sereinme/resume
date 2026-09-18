@@ -1,0 +1,70 @@
+#:schema ../metadata.toml.schema.json
+
+# Profile: French. Each profile_<name>/metadata.toml is a complete, self-
+# contained CV configuration. Switch profiles at compile time:
+#     typst compile cv.typ --input profile=fr
+
+# Italic tagline displayed below your name and contact info
+header_quote = "Doctorant en ingénierie de l'information et de la communication à l'Université Tsinghua (promotion 2023), spécialisé en positionnement GNSS et en sécurité de la synchronisation temporelle, avec 3 articles en premier auteur dont IEEE Transactions on Smart Grid. Expérience en développement embarqué FPGA, science des données et intelligence incarnée."
+
+# Text shown in the left side of the footer on CV pages
+cv_footer = "Résumé"
+
+# Text shown in the left side of the footer on cover letter pages
+letter_footer = "Lettre de motivation"
+
+[layout]
+    awesome_color = "skyblue"
+
+    before_section_skip = "1pt"
+    before_entry_skip = "1pt"
+    before_entry_description_skip = "1pt"
+
+    paper_size = "a4"
+
+    date_width = "3.6cm"
+
+    [layout.fonts]
+        regular_fonts = ["Libertinus Serif"]
+        header_font = "Libertinus Serif"
+
+    [layout.header]
+        header_align = "left"
+        display_profile_photo = true
+        profile_photo_radius = "50%"
+        info_font_size = "10pt"
+
+    [layout.entry]
+        display_entry_society_first = false
+        display_logo = true
+
+    [layout.section]
+        title_highlight = "first-letters"
+        title_highlight_letters = 3
+
+    [layout.footer]
+        display_page_counter = false
+        display_footer = true
+
+
+[inject]
+    # Hidden ATS keyword text is disabled by default — see profile_en/metadata.toml
+    # for the trade-offs. Uncomment only with truthful keywords.
+    # injected_keywords_list = ["GNSS", "algorithme de positionnement", "FPGA", "Python", "MATLAB"]
+
+[personal]
+    first_name = "Wenhao"
+    last_name = "Li"
+
+    [personal.info]
+        github = "Sereinme"
+        phone = "+86 15681220023"
+        email = "liwh23@mails.tsinghua.edu.cn"
+        linkedin = "liwh01"
+        orcid = "0009-0004-7752-6737"
+        researchgate = "Wenhao-Li-66"
+
+        [personal.info.custom-degree]
+            awesomeIcon = "graduation-cap"
+            text = "Doctorat en électronique"
+            link = "https://www.tsinghua.edu.cn"

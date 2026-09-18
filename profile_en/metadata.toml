@@ -1,0 +1,101 @@
+#:schema ../metadata.toml.schema.json
+
+# Profile: English. Each profile_<name>/metadata.toml is a complete, self-
+# contained CV configuration. Switch profiles at compile time:
+#     typst compile cv.typ --input profile=en
+# To add a new profile, copy this directory to profile_<name>/ and edit
+# the fields that differ.
+
+# Italic tagline displayed below your name and contact info
+header_quote = "Ph.D. candidate in Information and Communication Engineering at Tsinghua University (Class of 2023), working on GNSS positioning and time-synchronization security with 3 first-author papers including IEEE Transactions on Smart Grid. Hands-on across embedded FPGA development, data science, and embodied intelligence, with a record of taking algorithms from theory to validated systems."
+
+# Text shown in the left side of the footer on CV pages
+cv_footer = "Curriculum Vitae"
+
+# Text shown in the left side of the footer on cover letter pages
+letter_footer = "Cover Letter"
+
+[layout]
+    # Accent color used for section titles, icons, and highlights in the rendered PDF
+    # Preset: skyblue, red, nephritis, concrete, darknight — or any hex like "#1E90FF"
+    awesome_color = "skyblue"
+
+    # Controls vertical spacing; increase to spread out sections/entries, decrease to compact
+    before_section_skip = "1pt"
+    # Vertical space before each entry within a section
+    before_entry_skip = "1pt"
+    # Vertical space before entry description text
+    before_entry_description_skip = "1pt"
+
+    # Page dimensions and margins applied to the PDF output. Possible values: a4 (default), us-letter
+    paper_size = "a4"
+
+    # Width of the right-side date column in entries
+    date_width = "3.6cm"
+
+    [layout.fonts]
+        # Body and entry text
+        regular_fonts = ["Libertinus Serif"]
+        # Font used for the name and section headings in the header
+        header_font = "Libertinus Serif"
+
+    [layout.header]
+        # Aligns the entire header block (name, info, quote). Possible values: left, center, right
+        header_align = "left"
+
+        # false hides the photo and gives full width to name/info
+        display_profile_photo = true
+        # "50%" = circle, "0%" = square, "10%" = rounded corners
+        profile_photo_radius = "50%"
+        # Font size for the contact-info line (email, phone, links) in the header
+        info_font_size = "10pt"
+
+    [layout.entry]
+        # true = company name bold on top, role below; false = role bold on top
+        display_entry_society_first = false
+
+        # false hides all company/organisation logos in entries
+        display_logo = true
+
+    [layout.section]
+        # "first-letters" = first N grapheme clusters in accent color (Latin convention)
+        # "full"          = the whole title in accent color (CJK convention)
+        # "none"          = the whole title in black
+        title_highlight = "first-letters"
+        title_highlight_letters = 3
+
+    [layout.footer]
+        # true shows "1/2" style page numbers in the footer
+        display_page_counter = false
+
+        # false removes the footer entirely (no page text, no counter)
+        display_footer = true
+
+
+[inject]
+    # Hidden text injected into the PDF for ATS keyword matching (invisible to
+    # readers). Disabled by default: some ATS vendors treat hidden text as
+    # manipulation, and the text stays extractable via copy/paste. Uncomment
+    # only with keywords that are truthful.
+    # injected_keywords_list = ["GNSS", "Positioning Algorithm", "FPGA", "Python", "MATLAB"]
+
+    # custom_ai_prompt_text = "Custom prompt text here..."
+
+[personal]
+    first_name = "Wenhao"
+    last_name = "Li"
+
+    # The order of this section will affect how the entries are displayed
+    [personal.info]
+        github = "Sereinme"
+        phone = "+86 15681220023"
+        email = "liwh23@mails.tsinghua.edu.cn"
+        linkedin = "liwh01"
+        orcid = "0009-0004-7752-6737"
+        researchgate = "Wenhao-Li-66"
+
+        # Custom info with awesome icon
+        [personal.info.custom-degree]
+            awesomeIcon = "graduation-cap" # See https://typst.app/universe/package/fontawesome/
+            text = "PhD in Electronic Engineering"
+            link = "https://www.tsinghua.edu.cn"

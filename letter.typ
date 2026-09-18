@@ -1,12 +1,11 @@
 // Imports
-#import "@preview/brilliant-cv:3.3.0": letter
-#let metadata = toml("./metadata.toml")
-#let letter-language = sys.inputs.at("language", default: none)
-#let metadata = if letter-language != none {
-  metadata + (language: letter-language)
-} else {
-  metadata
-}
+#import "@preview/brilliant-cv:4.1.0": letter
+
+// Each profile lives in its own folder with a self-contained metadata.toml.
+// Switch profile at compile time:
+//   typst compile letter.typ --input profile=en
+#let profile = sys.inputs.at("profile", default: "en")
+#let metadata = toml("profile_" + profile + "/metadata.toml")
 
 
 #show: letter.with(
@@ -15,24 +14,25 @@
   recipient-name: "Company Name Here",
   recipient-address: "Company Address Here",
   date: datetime.today().display(),
-  subject: "Subject: Hey!",
-  signature: image("assets/signature.png"),
+  subject: "Application for <Position> — Wenhao Li",
+  // assets/signature.png is a scan with an opaque near-white background, so it
+  // renders as a faint box on the page. Export it again with a transparent
+  // background and uncomment this line to sign the letter.
+  // signature: image("assets/signature.png"),
 )
 
 Dear Hiring Manager,
 
-I am excited to submit my application for the Senior Data Analyst position at ABC Company. With over 5 years of experience in data analysis and a demonstrated track record of success, I am confident in my ability to make a valuable contribution to your team.
+I am writing to apply for the \<Position> role at \<Company>. I am a Ph.D. candidate in Information and Communication Engineering at Tsinghua University, working on GNSS positioning and time-synchronization security. My work so far has produced three first-author papers, including one in IEEE Transactions on Smart Grid, and I have taken every one of them from problem definition to a validated implementation.
 
-In my current role as a Data Analyst at XYZ Company, I have gained extensive experience in data mining, quantitative analysis, and data visualization. Through my work, I have developed a deep understanding of statistical concepts and have become adept at using tools such as SQL, Python, and R to extract insights from complex datasets. I have also gained valuable experience in presenting complex data in a visually appealing and easily accessible manner to stakeholders across all levels of an organization.
+The clearest example is my research on GNSS time-synchronization attacks. In my first first-author paper I designed an FD-DEFLATE data compression scheme for C/N0 estimation in GNSS interference monitoring, presented at ION GNSS+ 2024. I then worked on the attack side, developing a full-channel asynchronous spoofing technique for GNSS time-synchronization attacks for IEEE Transactions on Smart Grid, and on a sequential method that detects separate clock-drift anomalies in the same threat model. Together these gave me both halves of the problem: how a spoofing attack is constructed, and how a receiver can detect it.
 
-I believe that my experience in data analysis makes me an ideal candidate for the Senior Data Analyst position at ABC Company. I am particularly excited about the opportunity to apply my skills to support your organization's mission and drive impactful insights. Your focus on driving innovative solutions to complex problems aligns closely with my own passion for using data analysis to drive positive change in organizations.
+I have also shipped algorithms under industrial constraints. At SERES Group, I researched vision-language navigation for quadruped robots and built a multimodal navigation algorithm with a scene knowledge graph, extending reliable path planning into cluttered, previously unseen environments. In the same internship I diagnosed the root cause of parking-accuracy loss in the APA perception module, then applied ESKF multi-sensor fusion with graph optimization to tighten pose estimation. Earlier, at Navitech, I completed embedded development on a Xilinx FPGA platform in C and designed a multi-peak signal capture module, which taught me how much of algorithm quality is decided by the implementation underneath it.
 
-In my current role, I have been responsible for leading data projects from initiation to completion. I work closely with cross-functional teams to identify business problems and use data to develop solutions that drive business outcomes. I have a proven track record of delivering high-quality work on time and within budget.
+Alongside research, I have taught Modern and Statistical Signal Processing as a teaching assistant, compiling solution approaches for the Unscented Kalman Filter, Particle Filter, EM Algorithm, and GLRT. Explaining these methods clearly is a skill I rely on when I write papers, document code, or align with colleagues outside my specialty.
 
-Furthermore, I have extensive experience in developing and implementing data-driven solutions that improve business operations. For example, I have implemented predictive models that have improved sales forecasting accuracy by 10%, resulting in significant cost savings. I have also developed dashboards that provide real-time insights into business performance, enabling stakeholders to make more informed decisions.
+I would welcome the opportunity to discuss how my background in positioning algorithms, embedded implementation, and multimodal perception fits \<Company>.
 
-As a highly motivated and detail-oriented individual, I am confident that I would thrive in the fast-paced and dynamic environment at ABC Company. I am excited about the opportunity to work with a talented team of professionals and to continue developing my skills in data analysis.
-
-Thank you for considering my application. I look forward to the opportunity to discuss my qualifications further.
+Thank you for considering my application.
 
 Sincerely,

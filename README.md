@@ -71,4 +71,14 @@ typst compile cv.typ 李文昊.pdf --input profile=zh       # Chinese
 typst compile letter.typ cover-letter.pdf --input profile=en
 ```
 
-Available profiles: `en`, `zh`, `de`, `fr`, `it`. The Chinese profile needs the LXGW WenKai and TsangerJinKai03 fonts installed; all profiles use Libertinus Serif for Latin text.
+Available profiles: `en`, `zh`, `de`, `fr`, `it`.
+
+Font requirements (install locally — Typst cannot load them from the package):
+
+| Font | Needed for |
+| --- | --- |
+| Libertinus Serif | Latin text in every profile |
+| LXGW WenKai, TsangerJinKai03 | CJK body text and headings in `zh` |
+| Font Awesome 7 Free (Regular, Solid, Brands) | the header contact icons in every profile |
+
+The Font Awesome desktop OTFs come from [fontawesome.com/download](https://fontawesome.com/download); use version 7.0.0, which matches the icon codepoint map in `@preview/fontawesome:0.6.0`. If they are missing, the contact-row icons silently render as empty boxes instead of failing the build.

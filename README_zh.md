@@ -71,4 +71,14 @@ typst compile cv.typ Wenhao-Li.pdf --input profile=en   # 英文
 typst compile letter.typ cover-letter.pdf --input profile=en
 ```
 
-可用 profile：`zh`、`en`、`de`、`fr`、`it`。中文 profile 需要安装 LXGW WenKai（霞鹜文楷）与 TsangerJinKai03（楷体）字体；各 profile 的拉丁文本使用 Libertinus Serif。
+可用 profile：`zh`、`en`、`de`、`fr`、`it`。
+
+字体依赖（需本地安装，Typst 无法从宏包内读取字体）：
+
+| 字体 | 用途 |
+| --- | --- |
+| Libertinus Serif | 各 profile 的拉丁文本 |
+| LXGW WenKai（霞鹜文楷）、TsangerJinKai03 | `zh` profile 的中文正文与标题 |
+| Font Awesome 7 Free（Regular、Solid、Brands） | 各 profile 头部的联系方式图标 |
+
+Font Awesome 桌面版 OTF 从 [fontawesome.com/download](https://fontawesome.com/download) 获取，请使用 7.0.0 版本，与 `@preview/fontawesome:0.6.0` 的图标码表一致。若缺失，头部图标会静默渲染成空方框，而不会导致编译报错。

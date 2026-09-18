@@ -1,3 +1,12 @@
+// Required fonts — install these locally, otherwise glyphs silently fall back:
+// - Libertinus Serif: Latin text in every profile.
+// - LXGW WenKai + TsangerJinKai03: CJK body text and headings in profile_zh.
+// - Font Awesome 7 Free desktop OTFs (Regular, Solid, Brands): the contact-row
+//   icons in the header of every profile. Typst cannot read fonts from the
+//   package, so without them every icon renders as a missing-glyph box.
+//   Download from https://fontawesome.com/download — use 7.0.0, which matches
+//   the codepoint map in @preview/fontawesome:0.6.0.
+
 // Imports
 #import "@preview/brilliant-cv:4.1.0": cv, h-bar
 

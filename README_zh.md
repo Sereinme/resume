@@ -71,4 +71,4 @@ typst compile cv.typ Wenhao-Li.pdf --input profile=en   # 英文
 typst compile letter.typ cover-letter.pdf --input profile=en
 ```
 
-可用 profile：`zh`、`en`、`de`、`fr`、`it`。中文 profile 需要安装 TsangerJinKai03（楷体）与 Heiti SC 字体；各 profile 的拉丁文本使用 Libertinus Serif。
+可用 profile：`zh`、`en`、`de`、`fr`、`it`。中文 profile 需要安装 LXGW WenKai（霞鹜文楷）与 TsangerJinKai03（楷体）字体；各 profile 的拉丁文本使用 Libertinus Serif。

@@ -26,9 +26,9 @@ letter_footer = "申请信"
     date_width = "4.7cm"
 
     [layout.fonts]
-        # Mixed Latin + CJK. Typst's codepoint-level fallback picks Heiti SC
+        # Mixed Latin + CJK. Typst's codepoint-level fallback picks LXGW WenKai
         # for CJK characters and Libertinus Serif for Latin.
-        regular_fonts = ["Libertinus Serif", "Heiti SC"]
+        regular_fonts = ["Libertinus Serif", "LXGW WenKai"]
         # Kai (楷体) used for the name and section headings
         header_font = "TsangerJinKai03"
 

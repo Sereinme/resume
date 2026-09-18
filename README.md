@@ -71,4 +71,4 @@ typst compile cv.typ 李文昊.pdf --input profile=zh       # Chinese
 typst compile letter.typ cover-letter.pdf --input profile=en
 ```
 
-Available profiles: `en`, `zh`, `de`, `fr`, `it`. The Chinese profile needs the TsangerJinKai03 and Heiti SC fonts installed; all profiles use Libertinus Serif for Latin text.
+Available profiles: `en`, `zh`, `de`, `fr`, `it`. The Chinese profile needs the LXGW WenKai and TsangerJinKai03 fonts installed; all profiles use Libertinus Serif for Latin text.
